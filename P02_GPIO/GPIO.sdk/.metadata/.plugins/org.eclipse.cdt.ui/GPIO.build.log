@@ -1,0 +1,8 @@
+17:25:04 **** Incremental Build of configuration Debug for project GPIO ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+
+17:25:04 Build Finished (took 237ms)
+

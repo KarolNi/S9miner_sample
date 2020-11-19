@@ -1,0 +1,34 @@
+13:35:02 **** Incremental Build of configuration Debug for project SD_TEST ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/S9/P03_SD_TEST/SD_TEST.sdk/SD_TEST_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../SD_TEST_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:78:14: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+     printf("%d \n\r",(len/256+1)*256);
+              ^
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -IE:/S9/P03_SD_TEST/SD_TEST.sdk/SD_TEST_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../SD_TEST_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: SD_TEST.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../SD_TEST_bsp/ps7_cortexa9_0/lib -o "SD_TEST.elf"  ./src/sd/sd.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SD_TEST.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size SD_TEST.elf  |tee "SD_TEST.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  98420	   2628	  25248	 126296	  1ed58	SD_TEST.elf
+'Finished building: SD_TEST.elf.size'
+' '
+13:35:53 **** Incremental Build of configuration Debug for project SD_TEST ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

@@ -1,0 +1,8 @@
+13:35:53 **** Incremental Build of configuration Debug for project SD_TEST ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+
+13:35:54 Build Finished (took 414ms)
+

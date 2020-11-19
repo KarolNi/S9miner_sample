@@ -1,0 +1,98 @@
+/*
+ * sd.c
+ *
+ *  Created on: 2020Äê6ÔÂ25ÈÕ
+ *      Author: DENG
+ */
+#include <stdio.h>
+#include "sd.h"
+#include "xdevcfg.h"
+#include "ff.h"
+
+
+static FATFS fatfs;
+
+int SD_Init()
+{
+    FRESULT rc;
+    rc = f_mount(&fatfs,"",0);
+    if(rc)
+    {
+        printf("ERROR: f_mount returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    return XST_SUCCESS;
+}
+
+
+
+int SD_Transfer_read(char *FileName,u32 DestinationAddress,u32 ByteLength)
+{
+    FIL fil;
+    FRESULT rc;
+    UINT br;
+
+    rc=f_open(&fil,FileName,FA_READ);
+    if(rc)
+    {
+        printf("ERROR:f_open returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    rc = f_lseek(&fil,0);
+    if(rc)
+    {
+        printf("ERROR:f_open returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    rc = f_read(&fil,(void*)DestinationAddress,ByteLength,&br);
+    if(rc)
+    {
+        printf("ERROR:f_open returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    rc = f_close(&fil);
+    if(rc)
+    {
+        printf("ERROR:f_open returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    return XST_SUCCESS;
+}
+
+
+
+
+int SD_Transfer_write(char *FileName,u32 SourceAddress,u32 ByteLength)
+{
+    FIL fil;
+    FRESULT rc;
+    UINT bw;
+
+    rc = f_open(&fil,FileName,FA_CREATE_ALWAYS | FA_WRITE);
+    if(rc)
+    {
+        printf("ERROR : f_open returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    rc = f_lseek(&fil, 0);
+    if(rc)
+    {
+        printf("ERROR : f_lseek returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    rc = f_write(&fil,(void*) SourceAddress,ByteLength,&bw);
+    if(rc)
+    {
+        printf("ERROR : f_write returned %d; \r\n", rc);
+        return XST_FAILURE;
+    }
+    rc = f_close(&fil);
+    if(rc){
+        printf("ERROR : f_close returned %d; \r\n",rc);
+        return XST_FAILURE;
+    }
+    return XST_SUCCESS;
+}
+
+
+

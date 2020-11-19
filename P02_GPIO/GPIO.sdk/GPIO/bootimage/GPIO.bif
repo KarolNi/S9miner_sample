@@ -1,0 +1,6 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]E:\S9\P02_GPIO\GPIO.sdk\FSBL\Debug\FSBL.elf
+	E:\S9\P02_GPIO\GPIO.sdk\GPIO\Debug\GPIO.elf
+}

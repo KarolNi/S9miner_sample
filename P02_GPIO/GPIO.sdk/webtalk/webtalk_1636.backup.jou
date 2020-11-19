@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# 
+# Start of session at: Sat Jun 27 17:19:39 2020
+# Process ID: 1636
+# Current directory: E:/S9/P02_GPIO/GPIO.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: E:/S9/P02_GPIO/GPIO.sdk/webtalk/webtalk.log
+# Journal file: E:/S9/P02_GPIO/GPIO.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
